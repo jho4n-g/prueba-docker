@@ -38,7 +38,7 @@ pipeline {
                     echo "Construyendo y desplegando..."
                     cd $DEPLOY_DIR
                     docker-compose down || true
-                    docker-compose up -d --build
+                    docker-compose up -d --build app-prod
                 '''
             }
         }
