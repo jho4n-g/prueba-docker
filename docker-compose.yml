@@ -1,0 +1,19 @@
+services:
+  # Entorno de desarrollo
+  app-dev:
+    build:
+      context: .
+      target: development # apunta a la etapa dev
+    volumes:
+      - .:/app # tu código en tiempo real
+      - /app/node_modules # protege node_modules del contenedor
+    ports:
+      - '5173:5173'
+
+  # Entorno de producción
+  app-prod:
+    build:
+      context: .
+      target: production # apunta a la etapa prod (nginx)
+    ports:
+      - '80:80'
