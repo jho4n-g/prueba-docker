@@ -7,12 +7,13 @@ pipeline {
     }
 
     stages {
+
         stage('Verify environment') {
             steps {
                 sh '''
                     echo "Verificando herramientas..."
                     docker --version
-                    docker-compose --version
+                    docker compose version
                     git --version
                     ls -la $DEPLOY_DIR
                 '''
@@ -36,7 +37,7 @@ pipeline {
                 sh '''
                     echo "Construyendo y desplegando..."
                     cd $DEPLOY_DIR
-                    docker-compose up -d --build
+                    docker compose up -d --build
                 '''
             }
         }
@@ -48,15 +49,6 @@ pipeline {
                     docker ps
                 '''
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Deploy completado correctamente'
-        }
-        failure {
-            echo 'El pipeline falló'
         }
     }
 }
