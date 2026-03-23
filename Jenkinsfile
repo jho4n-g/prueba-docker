@@ -11,7 +11,7 @@ pipeline {
         stage('Verify environment') {
             steps {
                 sh '''
-                    echo "Verificando herramientas..."
+                    echo "Verificando herramientas.1212.."
                     docker --version
                     docker-compose --version
                     git --version
