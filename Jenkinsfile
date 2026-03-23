@@ -23,6 +23,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Actualizando código..."
+                    git config --global --add safe.directory $DEPLOY_DIR
                     cd $DEPLOY_DIR
                     git fetch origin
                     git reset --hard origin/$BRANCH
