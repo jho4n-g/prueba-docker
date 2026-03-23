@@ -16,4 +16,4 @@ services:
       context: .
       target: production # apunta a la etapa prod (nginx)
     ports:
-      - '80:80'
+      - '127.0.0.1:8080:80'
