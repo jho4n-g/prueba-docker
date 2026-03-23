@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_DIR = "/home/jho4n/prueba-docker"
+        DEPLOY_DIR = "/home/jho4n/prueba-docker/client"
         BRANCH = "main"
     }
 
